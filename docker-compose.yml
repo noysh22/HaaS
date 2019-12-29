@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  yopass:
+    container_name: yopass
+    image: jhaals/yopass
+    ports:
+      - "1337:1337"
+    links:
+      - memcached
+    command: --memcached=memcached:11211
+  memcached:
+    container_name: memcached_yopass
+    image: memcached
